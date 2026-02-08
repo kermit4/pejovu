@@ -44,7 +44,7 @@ https://github.com/kermit4/cjp2p-bash (less features)
 
 The file sharing is more of a primitave than a main purpose, providing applications a way to reliably receive data of arbitrary size from many peers.
 
-The protocol should sound more like people than computers.   Simple requests, share a lot, expect little, be tolerant -- you're talking to strangers using automation, not computers.  Prefer to leave decisions up to implementations.  It's a language for common people.
+The protocol should sound more like people than computers.   Simple requests, share a lot, expect little, be tolerant -- you're talking to strangers using automation, not computers.  Prefer to leave decisions up to implementations.  It's a language for ordinary people using automation.  Everyone starts somewhere, keep it accessable to any programming skill level, with more advanced features optional (or not, it's up to you on your node and implementation).
 
 pay attention to unhandled messages and try to handle them, or make your own -- you don't have to wait for some official protocol update or new messages or new fields.
 
