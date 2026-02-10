@@ -27,6 +27,9 @@ JSON array of message
       "offset":0 } }
 {"PleaseReturnThisMessage":{...}}   
 {"ReturnedMessage":{...}}  // probably for timestamping, maybe other things, like an HTTP cookie.   Send it all back with your reply, if there is any reply to send.
+{"ContentPeers":{"id":"foo",
+      "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } } // suggest where else to look for foo, this is likely in reply to PLeaseSendContent
+}}   
 ```
 
 ## implementations
@@ -75,13 +78,12 @@ Telegram group: https://t.me/cjp2p
 - some way to prevent being used as a DDOS by replying to a spoofed IP (some sort of cookie/handshake..calculated by a local random, to not need to remember them all)
 - need checksums of blocks before complete, confirmed data before sending it on, otherwise a bad bit may copy around forever, breaking a file
 - public keys in "Receive peers."
-- include suggestions as to where else to request content in replies to PleaseSendContent.
-- streams, i.e. files that keep growing
+- streams, i.e. files that keep growing..maybe just make eof an optional field
 - channels, like a stream but multiple senders
 - encryption
-- economics to insentivize resource sharing
+- economics to incentivize resource sharing
 - chat
-- chat message whitelisting to avoid spam
+- chat message white listing to avoid spam
 
 ## test files
 
