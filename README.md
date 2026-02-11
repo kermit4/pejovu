@@ -23,11 +23,11 @@ JSON array of message
 { "Content": { 
       "id":"8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4",
       "base64": "aGk=",
-      "eof": 2,
+      "eof": 2,           // this is the file length, not a boolean, so for files will always have the same value.  For streams it may change.
       "offset":0 } }
 {"PleaseReturnThisMessage":{...}}   
 {"ReturnedMessage":{...}}  // probably for timestamping, maybe other things, like an HTTP cookie.   Send it all back with your reply, if there is any reply to send.
-{"ContentPeers":{"id":"foo",
+{"MaybeTheyHaveSome":{"id":"foo",
       "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } } // suggest where else to look for foo, this is likely in reply to PLeaseSendContent
 }}   
 ```
