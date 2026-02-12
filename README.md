@@ -28,15 +28,15 @@ JSON array of message
 {"PleaseReturnThisMessage":{...}}   
 {"ReturnedMessage":{...}}  // probably for timestamping, maybe other things, like an HTTP cookie.   Send it all back with your reply, if there is any reply to send.
 {"MaybeTheyHaveSome":{"id":"foo",
-      "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } } // suggest where else to look for foo, this is likely in reply to PLeaseSendContent
+      "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } } // suggest where else to look for foo, this is likely in reply to PleaseSendContent
 }}   
 ```
 
 ## implementations
-https://github.com/kermit4/cjp2p-rust (implements everything listed above and by most the most deveoped)
-https://github.com/kermit4/cjp2p-bash (most features, slow transfers, but good for ideas and easier to read than Rust for many)
-https://github.com/kermit4/cjp2p-ruby (most feature very fast development cycle, but not very intelligent) 
-https://github.com/kermit4/cjp2p-haskell (very few features)
+- https://github.com/kermit4/cjp2p-rust (implements everything listed above and by most the most deveoped)
+- https://github.com/kermit4/cjp2p-bash (most features, slow transfers, but good for ideas and easier to read than Rust for many)
+- https://github.com/kermit4/cjp2p-ruby (most feature very fast development cycle, but not very intelligent) 
+- https://github.com/kermit4/cjp2p-haskell (very few features)
 
 ## likely to be running nodes
 148.71.89.128:24254
