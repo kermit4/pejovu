@@ -69,7 +69,6 @@ Telegram group: https://t.me/cjp2p
 - 256M cb407d7355bb63929d7f4b282684f5a2884a0c3fb73d56642455600569a6888b
 - 512M 6f5a06b0a8b83d66583a319bfa104393f5e52d2c017437a1b425e9275576500c
 - 1024M c7dce40a2af023d2ab7d4bc26fac78cba7f7cb7854f67f9fb5bf72b14d9931d8
-- 
 
 # future possibilities
 
@@ -87,6 +86,3 @@ Telegram group: https://t.me/cjp2p
 - chat
 - chat message white listing to avoid spam
 
-## test files
-
-  
