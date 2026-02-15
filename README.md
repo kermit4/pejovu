@@ -34,8 +34,8 @@ JSON array of message
 
 ## implementations
 - https://github.com/kermit4/cjp2p-rust (implements everything listed above and by most the most developed and intelligent)
-- https://github.com/kermit4/cjp2p-bash (most features, slow transfers, but good for ideas and easier to read than Rust for many)
-- https://github.com/kermit4/cjp2p-ruby (full implementation, fast, fast development cycle, but not very intelligent) 
+- https://github.com/kermit4/cjp2p-ruby (most protocol features, but not intelligent)
+- https://github.com/kermit4/cjp2p-bash (most protocol features, but not intelligent, slow transfers)
 - https://github.com/kermit4/cjp2p-haskell (very few features)
 
 ## likely to be running nodes
@@ -69,6 +69,10 @@ Telegram group: https://t.me/cjp2p
 - 256M cb407d7355bb63929d7f4b282684f5a2884a0c3fb73d56642455600569a6888b
 - 512M 6f5a06b0a8b83d66583a319bfa104393f5e52d2c017437a1b425e9275576500c
 - 1024M c7dce40a2af023d2ab7d4bc26fac78cba7f7cb7854f67f9fb5bf72b14d9931d8
+- 8e008973582673665a326cc44c681c11d9d39ec61dd529f3c1aa26695f4880e7  0x10001 (its one byte more than 64k)
+
+
+The SHA256 test files are also available as sha256.8e008973582673665a326cc44c681c11d9d39ec61dd529f3c1aa26695f4880e7  etc
 
 # future possibilities
 
