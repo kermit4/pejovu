@@ -72,8 +72,6 @@ Telegram group: https://t.me/cjp2p
 - 8e008973582673665a326cc44c681c11d9d39ec61dd529f3c1aa26695f4880e7  0x10001 (its one byte more than 64k)
 
 
-The SHA256 test files are also available as sha256.8e008973582673665a326cc44c681c11d9d39ec61dd529f3c1aa26695f4880e7  etc
-
 # future possibilities
 
 ## protocol ideas:
