@@ -33,7 +33,7 @@ JSON array of message
 }}   
 ```
 ### layer 2 (built upon the layer 1 functionality)
-TBD - this is where some basic cryptographic integrity would go.  Probably something like getting lots of small "files" and tossing them if they are corrupt, assembling them into the intended file or stream otherwise.  Maybe 1MB or 256kB?  Big  blocks of litle blocks.
+TBD 
 
 ## implementations
 - https://github.com/kermit4/cjp2p-rust (implements everything listed above and by most the most developed and intelligent)
@@ -73,6 +73,9 @@ Telegram group: https://t.me/cjp2p
 - 6f5a06b0a8b83d66583a319bfa104393f5e52d2c017437a1b425e9275576500c 512M
 - c7dce40a2af023d2ab7d4bc26fac78cba7f7cb7854f67f9fb5bf72b14d9931d8 1024M
 - 8e008973582673665a326cc44c681c11d9d39ec61dd529f3c1aa26695f4880e7 0x10001 bytes (one byte more than 64k)
+
+- 80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352  1024M.shasums                                   the sha256sums of each 256k block of this file, which are separately downloadable
+- a40e24319477590fdcad751a76dca92e542f0134f6dd93582decd1557d2676ad  256Mshasums the sha256sums of each 256k block of this file, which are separately downloadable
 
 
 # future possibilities
