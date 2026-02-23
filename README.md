@@ -65,7 +65,7 @@ The file sharing is more of a primitive than a main purpose, providing applicati
 
 The protocol should sound more like people than computers.   Simple requests, share a lot, expect little, be tolerant -- you're talking to strangers using automation, not computers.  Prefer to leave decisions up to implementations.  It's a language for ordinary people using automation.  Everyone starts somewhere, keep it accessable to any programming skill level, with more advanced features optional (or not, it's up to you on your node and implementation).
 
-pay attention to unhandled messages and try to handle them, or make your own -- you don't have to wait for some official protocol update or new messages or new fields.
+pay attention to unhandled messages and try to handle them, or make your own -- you don't have to wait for some official protocol update to add messages or fields.
 
 Telegram group: https://t.me/cjp2p
 
@@ -92,7 +92,7 @@ Telegram group: https://t.me/cjp2p
 # future possibilities
 
 ## protocol ideas:
-- public keys in "Receive peers."
+- public keys in "PeerInfo"
 - large files as a series of sha256sums of 256K blocks. so parts can be shared before its all done, and errors dont cause a complete retransfer.
 - streams, i.e. a running series of sha256sums which are fetched with PleaseSendContent
 - channels, like a stream but multiple senders, a concensus on it (like a blockchain)
