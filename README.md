@@ -69,7 +69,7 @@ pay attention to unhandled messages and try to handle them, or make your own -- 
 
 Telegram group: https://t.me/cjp2p
 
-## test files available (under both their sha256 hash and name)
+## test files available (under both their SHA256 hash and name, though the Rust implementation expects it to be a SHA256)
 - c3514bf0056180d09376462a7a1b4f213c1d6e8ea67fae5c25099c6fd3d8274b ubuntu-24.04.3-live-server-amd64.iso
 - c74833a55e525b1e99e1541509c566bb3e32bdb53bf27ea3347174364a57f47c ubuntu-24.04.3-wsl-amd64.wsl
 - d8b778285d0006ac17839bcded0fb9bd5dc9cbc8e869adb7b9bbea31efa8070e 1M
@@ -85,8 +85,8 @@ Telegram group: https://t.me/cjp2p
 - c7dce40a2af023d2ab7d4bc26fac78cba7f7cb7854f67f9fb5bf72b14d9931d8 1024M
 - 8e008973582673665a326cc44c681c11d9d39ec61dd529f3c1aa26695f4880e7 0x10001 bytes (one byte more than 64k)
 
-- 80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352  the sha256sums of each 256k block of 1024M, which are separately downloadable
-- a40e24319477590fdcad751a76dca92e542f0134f6dd93582decd1557d2676ad  the sha256sums of each 256k block of 256M, which are separately downloadable
+- 80dfa275db78819616ae2cf361c39323d3b2d69b565dfea5706eed6a29aad352  1024 sha256sums of each 1M block of 1024M, which are separately downloadable
+- a40e24319477590fdcad751a76dca92e542f0134f6dd93582decd1557d2676ad  1024 sha256sums of each 256k block of 256M, which are separately downloadable
 
 
 # future possibilities
