@@ -6,7 +6,7 @@ A connectionless, simple, interoperable, expansible, p2p protocol, inspired by h
 
 
 ## protocol 
-JSON array of messages.   Make a PR into here if you see any new fields or messages.
+JSON array of messages.   Please make a PR into here if you spot any new fields or messages.
 
 ## message types 
 ### MUST implement
@@ -65,7 +65,7 @@ The file sharing is more of a primitive than a main purpose, providing applicati
 
 The protocol should sound more like people than computers.   Simple requests, share a lot, expect little, be tolerant -- you're talking to strangers using automation, not computers.  Prefer to leave decisions up to implementations.  It's a language for ordinary people using automation.  Everyone starts somewhere, keep it accessable to any programming skill level, with more advanced features optional (or not, it's up to you on your node and implementation).
 
-pay attention to unhandled messages and try to handle them, or make your own -- you don't have to wait for some official protocol update to add messages or fields.
+pay attention to unhandled messages and try to handle them, or make your own -- you don't have to wait for some official protocol update to add messages or fields, just don't crash if you receive some.
 
 Telegram group: https://t.me/cjp2p
 
