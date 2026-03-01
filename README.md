@@ -48,7 +48,7 @@ JSON array of messages.   Please make a PR into here if you spot any new fields 
 
 ## implementations
 - https://github.com/kermit4/cjp2p-rust (implements everything listed above and far the most developed and intelligent)
-- https://github.com/kermit4/cjp2p-ruby (most protocol features, but not intelligent)
+- https://github.com/kermit4/cjp2p-ruby (most protocol features, not very intelligent, but much much easier to read than the more developed Rust version)
 - https://github.com/kermit4/cjp2p-bash (most protocol features, but not intelligent, slow transfers)
 - https://github.com/kermit4/cjp2p-haskell (very few features)
 
@@ -102,5 +102,5 @@ Telegram group: https://t.me/cjp2p
 - group chats (this is actually a many to many channel without consensus)
 - chat message white or black listing to avoid spam, and sharing the lists
 - synchronized media playback between peers (i dont know why, it just seems fun...a shared experience, at a distance, would go well with group chats)
--- RecommendedContent message type?   Some people like to share!  And not just spammers.  (How to reduce that noise?i multiple sources of recommendation? end user must approve..and not Sybil. an IPv4 is valid scarcity.)
+- RecommendedContent message type?   Some people like to share!  And not just spammers.  (How to reduce that noise?i multiple sources of recommendation? end user must approve..and not Sybil. an IPv4 is valid scarcity.)
 - "HELP", or WhatMessagesDoYouSupport?
