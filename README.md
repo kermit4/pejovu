@@ -11,7 +11,7 @@ JSON array of messages.   Please make a PR into here if you spot any new fields 
 
 ## message types 
 ### MUST implement
-#### Like an HTTP Cookie, send it back with any message to the node that provided it.   (This is so you don't spoof your IP to use a node as a flood by making a small sized request for a large sized of reply.  Without it, you'll probably be ignored, rate limited, get very short replies.)
+#### Send it back with any message to the node that provided it.   Currently, this is only used so no one can falsify ("spoof") their source IP to use a node to spam ("flood") someone else.   Without it, you'll receive less replies.  ( https://en.wikipedia.org/wiki/IP_address_spoofing )    
 ```JSON
 {"PleaseAlwaysReturnThisMessage":["any",{"valid":"JSON"}]}
 {"AlwaysReturned":               ["any",{"valid":"JSON"}]}  
