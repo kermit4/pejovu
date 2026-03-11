@@ -43,6 +43,10 @@ JSON array of messages.   Please make a PR into here if you spot any new fields 
 {"MaybeTheyHaveSome":{
        "id":"foo",
       "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } }
+#### A simple example for now -- show the user the message, until the spam comes then filter them somehow.
+{"ChatMessage":{
+       "message":"hi",
+       } }
 
 ```
 
@@ -101,15 +105,12 @@ Telegram group: https://t.me/cjp2p
 # future possibilities
 
 ## protocol ideas:
-- large files as a series of sha256sums of 256K blocks. so parts can be shared before its all done, and errors dont cause a complete retransfer.
-- streams, i.e. a running series of sha256sums which are fetched with PleaseSendContent
-- channels, like a stream but multiple senders, with consensus (like a blockchain)
+- content.is_metadata, to include a list of hashes for huge files or streams that we want to verify as we go. (which could themselves do the same for really huge files)
+- channels, like a stream but multiple senders, with consensus (like a blockchain or DAG)
 - channels, like a stream but multiple senders, without consensus 
 - encryption something like MyTemporaryPublicKey{e25519:"in base64"}      EncryptedMessages{base64:"some base64 that decrypts to an array of JSON messages"}
 - economics to incentivize resource sharing
-- 1:1 chat.  even slow asym encryption would be nice here.
 - group chats (this is actually a many to many channel without consensus)
 - chat message white or black listing to avoid spam, and sharing the lists
-- synchronized media playback between peers (i dont know why, it just seems fun...a shared experience, at a distance, would go well with group chats)
+- synchronized media playback between peers (i dont know why, it just seems fun...a shared experience, at a distance, would go well with group chats, like the 1990s when video was usually in sync)
 - RecommendedContent message type?   Some people like to share!  And not just spammers.  (How to reduce that noise?i multiple sources of recommendation? end user must approve..and not Sybil. an IPv4 is valid scarcity.)
-- "HELP", or WhatMessagesDoYouSupport?
