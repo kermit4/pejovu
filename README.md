@@ -124,7 +124,6 @@ Telegram group: https://t.me/cjp2p
 - content.is_metadata, to include a list of hashes for huge files or streams that we want to verify as we go. (which could themselves do the same for really huge files)
 - channels, like a stream but multiple senders, with consensus (like a blockchain or DAG)
 - channels, like a stream but multiple senders, without consensus 
-- encryption something like MyTemporaryPublicKey{e25519:"in base64"}      EncryptedMessages{base64:"some base64 that decrypts to an array of JSON messages"}
 - economics to incentivize resource sharing
 - group chats (this is actually a many to many channel without consensus)
 - proximity chat (by latency)
