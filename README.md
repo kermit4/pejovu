@@ -126,7 +126,6 @@ Telegram group: https://t.me/cjp2p
 - channels, like a stream but multiple senders, without consensus 
 - economics to incentivize resource sharing
 - group chats (this is actually a many to many channel without consensus)
-- proximity chat (by latency)
 - chat message white or black listing to avoid spam, and sharing the lists
 - synchronized media playback between peers (i dont know why, it just seems fun...a shared experience, at a distance, would go well with group chats, like the 1990s when video was usually in sync)
 - RecommendedContent message type?   Some people like to share!  And not just spammers.  (How to reduce that noise?i multiple sources of recommendation? end user must approve..and not Sybil. an IPv4 is valid scarcity.)
