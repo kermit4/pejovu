@@ -35,3 +35,7 @@ a baseline protocol everyone can build on, minimal requiremnets (an array of ext
 
 
 a bridge..we've mostly agreed on IP, and mostly on UDP or TCP, and some 1:1 protocols like http and DNS, but for many to many, it gets very fragmented fast.  this is meant to be a layer between UDP and many to many applications, a common language (JSON), and also connection oriented as desired not imposed, as many p2p cases applications are sending messages not streams, so sending them over streams adds undesired complexity
+
+
+when it says unreliable in this case it doesn't mean that in a negative way what
+it means is that the operating system isn't going to delay or lose messages when a previous message has not been received.  I prefer that the application receive messages as soon as they arrive and not be deliberately lost simply because others were accidentally lost. a developed application will always deal with reconnections which is the same as dealing with retransmissions and timeouts and the developed application will be able to handle messages in an orderly fashion even if they are not received in order anyway so allowing the operating system to continue to do that duplicates that that work and just creates lag and extra messages lost. 
