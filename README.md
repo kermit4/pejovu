@@ -1,13 +1,15 @@
 CJP2P - Connectionless JSON P2P Protocol
 
-A connectionless, simple, interoperable, expansible, p2p protocol, for building message oriented,        not connection oriented, p2p (peer-to-peer)                 applications keeping only as much state about peers as     you prefer, implementing as much or as little as you like, and without relaying messages due to           connection limits, or suffering artificial latencies, with perpetual compatibility by extension instead of breaking changes, inspired by https://farcaster.xyz/vitalik.eth/0xd6b8e141 and https://medium.com/@webseanhickey/the-evolution-of-a-software-engineer-db854689243
+A connectionless, simple, interoperable, expansible, p2p protocol, for building message oriented,        not connection oriented, p2p (peer-to-peer)                 applications keeping only as much state about peers as     you prefer, implementing as much or as little as you like, and without the artificial latency of relaying messages due to           connection limits, or suffering artificial latencies, with perpetual compatibility by extension instead of breaking changes, inspired by https://farcaster.xyz/vitalik.eth/0xd6b8e141 and https://medium.com/@webseanhickey/the-evolution-of-a-software-engineer-db854689243
+
+(I am under the impression that many p2p apps send messages over connections over messages out of a habbit of using connections for networking, not because it was thought through, like typing in Qwerty.)
 
 
 # as seen in the wild 
 
 
 ## protocol 
-JSON array of messages.   Please make a PR into here if you spot any new fields or messages.
+JSON array of messages.   Please make a PR into here if you spot any new fields or messages.  You can add messages, fields to messages, or stop using messages, but do not try to change the meaning of known messages.  If you want to make an incompatible change to a message, make a new one.  If you want to just add a field, that's fine, as long as you don't mind it being ignored.  If you receive unknown / unhandled fields or messages just ignore them.
 
 ## message types 
 ### SHOULD implement

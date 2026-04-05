@@ -1,4 +1,4 @@
-i belive the focus on connections is nothing more than habbit, like qwerty
+i belive the focus on connections is nothing more than habbit, like qwerty... who here uses qwerty?  of those, who use werty because you researched the available layouts available on the platfroms you commonly use and decided it was the optimal one for your regular use?  (hint: its probably not)
 
 yeah like many-to-many VPNs, plus peer discovery and flexible amount of state keeping to support millions of peers, not all-or-nothing like "connections", and no artificial in-kernel latency if a packet is lost.  (pro-tip: keep more state about the ones you expect to talk to more).    also stateless 1RTT (or even 0.5 )  for many common cases.
 
@@ -53,3 +53,6 @@ messages on top of connections simulated over messages is more silly than just c
 
 
 in most cases, i dont want messages artificially delayed by the operating system
+
+
+immutiable sets of specs, you can add but not alter
