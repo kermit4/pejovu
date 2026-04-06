@@ -4,6 +4,7 @@ A connectionless, simple, interoperable, expansible, p2p protocol, for building 
 
 (I am under the impression that many p2p apps send messages over connections over messages out of a habbit of using connections for networking, not because it was thought through, like typing in Qwerty.)
 
+You can build "connections" over these messages just like people do over IP, if you want to for some reason, whatever "connection" means to you.  
 
 # as seen in the wild 
 
