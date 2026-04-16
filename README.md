@@ -50,13 +50,13 @@ JSON array of messages.   Please make a PR into here if you spot any new fields 
 ```
 #### other
 ```JSON
-{"ChatMessage":{ "message":"hi", "length":u64} }
+{"ChatMessage":{ "message":"hi", "length":12345} }
 {"SawMessage":{ "hash": "hash of last received chat message that has been viewed (not just received, actual window focus)" );
-{"YouSouldSeeThis":{ "id":"sha256", "length":u64 } }
-{"IJustSawThis":{ "id":"sha256", } }
+{"YouSouldSeeThis":{ "id":"sha256", "length":12345 } }
+{"IJustSawThis":{ "id":"sha256" } }
 {"PleaseListContent":{}}
-{"ContentList":{ results: [ [ "hash", size:123 ] , ] }
-{"AudioFrame":{ sampleRate: 48000, channels: 1, format: 'f32', data: "some base64" }
+{"ContentList":{ "results": [ [ "hash", "size":123 ] , ] }
+{"AudioFrame":{ "sampleRate": 48000, "channels": 1, "format": 'f32', "data": "some base64" }
 
 ```
 #### cryptography related
