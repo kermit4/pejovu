@@ -1,17 +1,15 @@
-Least Common Denominator Protocol
+Least Common Denominator Protocol tracking page
 
-A connectionless, simple, interoperable, expansible, p2p protocol, for building message oriented,        p2p (peer-to-peer)                 applications, keeping only as much state about peers as     you prefer, implementing as much or as little as you like, with minimal latency, perpetual compatibility by extension not versioning, inspired by https://farcaster.xyz/vitalik.eth/0xd6b8e141 and https://medium.com/@webseanhickey/the-evolution-of-a-software-engineer-db854689243
-
-(I am under the impression that many p2p apps send messages over connections over messages out of a habbit of using connections in networking, like typing in Qwerty.)
+LCDP is a simple, interoperable, expansible, message oriented peer to peer protocol, allowing participants to keep only as much state about peers as     they prefer, implementing only the message types of interest, with minimal latency, and perpetual compatibility by extension not versioning, inspired by https://farcaster.xyz/vitalik.eth/0xd6b8e141 and https://medium.com/@webseanhickey/the-evolution-of-a-software-engineer-db854689243
 
 # as seen in the wild 
 
 ## protocol 
-JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spot any new fields or messages.  You can add messages, add fields to messages, ignore messages, but do not change the meaning of known messages.  Tolerate unknown messages and fields.  Log and consider implementing them.
+JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spot any new fields or messages in use.  Do not change the meaning of already used messages except by adding fields.   Tolerate unrecognized messages and fields.
 
 ## message types 
 ### SHOULD implement
-#### Send it back with any message to the node that provided it.   Currently, this is only used so no one can fake ("spoof") their source IP to use a node to spam ("flood") someone else.   Without it, you'll receive less, or smaller, replies from most peers.  ( https://en.wikipedia.org/wiki/IP_address_spoofing )        
+#### Send it back with any message to the node that provided it.   Currently, this is only used so no one can fake ("spoof") their source IP to use a node to spam ("flood") someone else.   Message responses to the sames IP range should not average more than twice that of message requests without this.  ( https://en.wikipedia.org/wiki/IP_address_spoofing )        
 ```JSON
 {"PleaseAlwaysReturnThisMessage":["cookie","String"]
 {"AlwaysReturned":               ["cookie","String"]
