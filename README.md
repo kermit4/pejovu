@@ -84,14 +84,17 @@ JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spo
  SignedPub
  
 ## implementations
-## of the node
+### of the node
 - https://github.com/kermit4/cjp2p-rust (implements everything listed above, and more, and by far the most developed and intelligent, so also not the simplest example to read)
 - https://github.com/kermit4/cjp2p-ruby (most protocol features, not very intelligent, but much much easier to read than the more developed Rust version, even if you know Rust and not Ruby)
 - https://github.com/kermit4/cjp2p-bash (most protocol features, but not intelligent, slow transfers, easy to read if you know BASH but not Rust)
 - https://github.com/kermit4/cjp2p-haskell (very few features)
 - There's rumors of a Go version but I haven't seen the code
-### Web UIs to the node
- https://oneplusone.bzz.link/
+### Web based interfaces to the node
+ https://oneplusone.bzz.link/ - has a blank to input a different websocket URL if you dont have one running at localhost
+ https://azai.net/pong.html pong with a very useful latency chart
+ https://azai.net/video.html  video calls
+
 
 ## likely to be running nodes
 - UDP 148.71.89.128:24254
