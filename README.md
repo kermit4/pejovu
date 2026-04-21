@@ -21,11 +21,10 @@ JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spo
       "peers":[
           "148.71.89.128:43344",
           "148.71.89.128:50352"] } }
-
+{"GetPub":{ "ed25519h": "hex of ed25519 sought, if found returns a MyPublicKey wrapped in a Forwarded, so you know where it came from"}}
 ```
-#### Probably just used to see how far away, or how lagged, a peer is in time.  Only return once, then forget it.
+#### ping -- participants might use this to prioritize which peers to keep track of and which to keep in touch with more. Send it back and forget it, as it is probably a timestamp.
 ```
-
 {"PleaseReturnThisMessage":["cookie","String"]
 {"ReturnedMessage":        ["cookie","String"]
 ```
@@ -76,7 +75,6 @@ JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spo
       "ed25519_eth_signed": "optionally, a eth wallet signed message of: my ed25519 public key is 12345678abcdef"
         } }
 {"GetPubByEth":{ "eth_addr": "hex of eth address you want to find the ed25519 for, if found it will return a MyPublicKey wrapped in a Forwarded so you know where it really came from"}}
-{"GetPub":{ "ed25519h": "hex of ed25519 you're looking for, if found it will return a MyPublicKey wrapped in a Forwarded so you know where it came from"}}
 {"Forwarded":{"src":"1,2.3.4:45678","from_ed25519":"only if verified","maybe_ed25519":"if not verified for this message, but from a source that claims to be this key" ,"messages":"a string that is this protocol"}}
 
 ```
