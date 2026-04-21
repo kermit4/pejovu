@@ -75,7 +75,8 @@ JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spo
       "ed25519h": "hex (no 0x in front)",
       "ed25519_eth_signed": "optionally, a eth wallet signed message of: my ed25519 public key is 12345678abcdef"
         } }
-{"GetPubByEth":{ "eth_addr": "eth address you want to find the ed25519 for, if found it will return a MyPublicKey wrapped in a Forwarded so you know where it really came from"}}
+{"GetPubByEth":{ "eth_addr": "hex of eth address you want to find the ed25519 for, if found it will return a MyPublicKey wrapped in a Forwarded so you know where it really came from"}}
+{"GetPub":{ "ed25519h": "hex of ed25519 you're looking for, if found it will return a MyPublicKey wrapped in a Forwarded so you know where it came from"}}
 {"Forwarded":{"src":"1,2.3.4:45678","from_ed25519":"only if verified","maybe_ed25519":"if not verified for this message, but from a source that claims to be this key" ,"messages":"a string that is this protocol"}}
 
 ```
