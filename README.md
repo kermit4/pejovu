@@ -9,7 +9,7 @@ JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spo
 
 ## message types 
 ### SHOULD implement
-#### Send it back with any message to the node that provided it.   Currently, this is only used so no one can fake ("spoof") their source IP to use a node to spam ("flood") someone else.   Message responses to the sames IP range should not average more than twice that of message requests without this.  ( https://en.wikipedia.org/wiki/IP_address_spoofing )        
+#### Send it back with any message to the node that provided it.   Currently, this is only used so no one can fake ("spoof") their source IP to use a node to spam ("flood") someone else.   Messages recieved without the correct AlwaysReturned should only be sent responses that, on average, are no more than twice the size of such messages received.  ( https://en.wikipedia.org/wiki/IP_address_spoofing )        
 ```JSON
 {"PleaseAlwaysReturnThisMessage":["cookie","String"]
 {"AlwaysReturned":               ["cookie","String"]
