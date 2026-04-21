@@ -48,7 +48,7 @@ JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spo
 #### other
 ```JSON
 {"ChatMessage":{ "message":"hi", "length":12345} }
-{"SawMessage":{ "hash": "sha256 hash of last received chat message that has been viewed (not just received, actual window focus)" );
+{"SawMessage":{ "hash": "sha256 hash of last received chat message that has been viewed (not just received, actual window focus)" 
 {"YouSouldSeeThis":{ "id":"sha256", "length":12345 } }
 {"IJustSawThis":{ "id":"sha256" } }
 {"PleaseListContent":{}}
@@ -59,9 +59,9 @@ JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spo
 #### Pong (real time game)
 ```JSON
 {"PongMove":{"ball_x":400,"ball_y":250,"move_number":1,"vx":4.7022678911042926,"vy":-1.6996107437556365}}
-{"PongPaddle":{"paddle_y":320.6106870229008}}]
-{"PongPing":{"seq":123,"t":2345678}}]
-{"PongPingPong":{"seq":123,"t":2345678}}]
+{"PongPaddle":{"paddle_y":320.6106870229008}}
+{"PongPing":{"seq":123,"t":2345678}}
+{"PongPingPong":{"seq":123,"t":2345678}}
 
 ```
 #### cryptography related
