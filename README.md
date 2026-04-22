@@ -78,9 +78,9 @@ JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spo
 {"Forwarded":{"src":"1,2.3.4:45678","from_ed25519":"only if verified","maybe_ed25519":"if not verified for this message, but from a source that claims to be this key" ,"messages":"a string that is this protocol"}}
 
 ```
-### deprecated, do not use
+### no longer in use that I'm aware of (but you should not re-use them in any incompatible way)
 
- SignedPub GetPub
+ SignedPub GetPub OnePlusOneMemberships TransferStatus TheseArePeers SearchResult Search PromotedContent ListResult List LastViewed HereIsContent EmptyMessage ContentPeers ContentPeerSuggestions
  
 ## implementations
 ### of the node
