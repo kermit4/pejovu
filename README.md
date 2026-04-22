@@ -104,6 +104,8 @@ JSON (UTF-8 encoding) array of messages.   Please make a PR into here if you spo
 
   tcpdump -As 9999 -i any port 24254
 
+  You could make something useful by implimenting no more than WhereAreThey and ChatMessage, or just as examples, or only PleaseSenContent, or just WhereAreThey and AudioFrame, or only PleaseReturnThisMessage, or some new type of your own. 
+
 The file sharing is more of a primitive than a main purpose, providing applications a way to reliably receive data of arbitrary size from many peers.
 
 The protocol should sound more like people than computers.   Simple requests, share a lot, expect little, be tolerant -- you're talking to strangers using automation, not computers.  Prefer to leave decisions up to implementations.  It's a language for ordinary people using automation.  Everyone starts somewhere, keep it accessable to any programming skill level, with more advanced features optional (or not, it's up to you on your node and implementation).
