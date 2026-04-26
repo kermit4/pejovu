@@ -89,8 +89,8 @@ Ask for the latest known signed hash of a named file published by an ed25519 key
 {"Latest":{"ed25519":"hex of publisher's public key","name":"filename","sha256":"hex sha256 of current content","seq":1234567890}}
 ```
 `seq` is typically the file's modification time as Unix seconds.  `Latest` is only valid inside a `SignedMessage` whose `ed25519` matches; nodes drop it otherwise.
-#### websocket client helper (node-local only, not relayed over UDP)
-Ask the node to forward messages to a peer identified by ed25519 public key, encrypting with `EncryptedMessages`
+#### websocket client helper
+Ask the node to forward messages to a peer identified by ed25519 public key, encrypting with `EncryptedMessages`.  The only known implementation will currently ignore these arriving from the network.
 ```JSON
 {"Forward":{"to_ed25519":"hex of destination public key","messages":[...]}}
 ```
