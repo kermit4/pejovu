@@ -100,7 +100,7 @@ Ask the node to forward messages to a peer identified by ed25519 public key, enc
  
 ## implementations
 ### of the node
-- In Rust https://app.radicle.xyz/nodes/iris.radicle.xyz/rad:z3muoqLkU65QFyyJaVvCv9WiDEo21   (implements everything listed above, and more, and by far the most developed and intelligent, so also not the simplest example to read)
+- In Rust https://app.radicle.xyz/nodes/iris.radicle.xyz/rad:z3muoqLkU65QFyyJaVvCv9WiDEo21   or https://github.com/kermit4/cjp2p-rust/ (for verified builds)(implements everything listed above, and more, and by far the most developed and intelligent, so also not the simplest example to read)
 - https://github.com/kermit4/cjp2p-ruby (most protocol features, not very intelligent, but much much easier to read than the more developed Rust version, even if you know Rust and not Ruby)
 - https://github.com/kermit4/cjp2p-bash (most protocol features, but not intelligent, slow transfers, easy to read if you know BASH but not Rust)
 - https://github.com/kermit4/cjp2p-haskell (very few features)
