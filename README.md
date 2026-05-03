@@ -8,9 +8,9 @@ Telegram group: https://t.me/lowest_common_denominator
 UTF-8 encoded JSON array of externally tagged messages.   Please make a PR into here if you spot any new fields or messages in use.  Do not change the meaning of already used messages except by adding fields.   Tolerate unrecognized messages and fields.
 
 ## elaborative essays
-- english_for_the_wire.md
-- quick-start.md
-- why-messages-not-connections.md
+- (english_for_the_wire.md)
+- (quick-start.md)
+- (why-messages-not-connections.md)
 
 # as seen in the wild 
 ## message types 
