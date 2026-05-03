@@ -62,3 +62,69 @@ keep cash not need permissisen to buy food..thats extraordinarily dystopian.  li
 
 
 my motivation.. it is self serving, because decentralization helps everyone, it empowers me to communicate without a third party choosing what i can communicate, and that is important to me
+
+English for the wire
+LCDP is a shorter way to say UTF-8 encoded JSON arrays of externally tagged values intended for inter-party communication.  IP in JSON 
+
+need biggger stay
+slides on xiamoi stick MAKE SURE PORN DOESNT POP UP or a bunch of pirated stuff
+
+use good wallet for fragile czk
+
+
+ make separate crypto friendly urls, for eth and bitcoin, SAME PAGE fuckers, this is the same  fight
+ make pong and video and chat eth and bitcoin friendly
+
+ structural censorship, once you see it you see it everywhere.
+
+
+
+You could make something useful by implimenting no more than WhereAreThey and ChatMessage, or some other program  only PleaseSendContent, or another just WhereAreThey and AudioFrame, or even only PleaseReturnThisMessage (like a ping) or some new type of your own.
+
+
+nice history of unix video, working within the constraits
+
+
+historically cpus or networks were bottlenecks, or development time..none of that really is now, so we can have a simple protocol thats not the most cpu or network efficient, as i was able to process 1gbps of JSON on a $50 laptop with using core.
+
+
+
+
+kermit:
+JSON is like IP but readable data, just base64 anything.
+
+i should give some perspective, its not that i'm the first person to think of anything exactly its that bottlenecks change over time in computing..some years its networks, some years its cpus, some years its engineers.  it would not have made sense to base64 encode large data over wordy formats that take lots of CPU processing and excess network bandwidth in many decades.  in this decade, none of that is the bottleneck.  its developer time, or now actually claude time.  clear data formats trump efficient cpu/network in 2026.      LCDP would not have made sense  2005 or 1995 or 1985 or maybe even 2015.
+
+decades ago TCP also saved a LOT of coding effort, and CPU, and card bus I/O.  now its so easy and everyone's duplicating all that app level anyway.
+
+so the shifting bottlenecks make now the right time to do things this way.  and those past bottlenecks wont return unless we start trying to do like holographic VR or idk what, but then you can negotiate such things over this anyway.
+
+
+kermit:
+(its a usual question to ask "if so good why no one before")
+
+optimizations are only of value when one has identified the bottleneck
+
+and btw you're the bottleneck now [people like you].  "i am not a developer" with Claude.  the bottleneck is waiting for you to tell it what to do, not the hardware.
+
+we are post computing scarcity.  must code from the past was written when that was not true.
+
+mentodn optimal at one time are not at another.  theres  a lot of momentum in those methods though.
+
+practice video myself
+
+show how easy it is to make an app custom  ..browser ui or native? is native even hard now?
+
+
+give background, people often asked how to do p2p directly without forwarding
+
+Using the same name for software and protocols is the trend that killed decentralizion since 2000.  People just see apps so they make more apps, never even thinking about interoperability.  Breaking that trend is critical and necessary to bringing back decentralizion by default.
+
+
+"why now, why all these other ways before, this isn't new?"  "the bottlenecks have moved" (its not cpu, network, disk anymore.  its you, the developer, and with AI that's all of you.)
+
+
+English for the wire
+
+
+IP+JSON
