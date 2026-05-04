@@ -55,7 +55,7 @@ UTF-8 encoded JSON array of externally tagged messages.   Post new message types
 ```JSON
 {"ChatMessage":{ "message":"hi", "length":12345} }
 {"SawMessage":{ "hash": "sha256 hash of last received chat message that has been viewed (not just received, actual window focus)" 
-{"YouSouldSeeThis":{ "id":"sha256", "length":12345 } }
+{"YouShouldSeeThis":{ "id":"sha256", "length":12345 } }
 {"IJustSawThis":{ "id":"sha256" } }
 {"PleaseListContent":{}}
 {"ContentList":{ "results": [ [ "hash", "size":123 ]  ] }
@@ -99,7 +99,7 @@ Ask the node to forward messages to a peer identified by ed25519 public key, enc
 ```
 ### no longer in use that I'm aware of (but you should not re-use them in any incompatible way)
 
- SignedPub GetPub OnePlusOneMemberships TransferStatus TheseArePeers SearchResult Search PromotedContent ListResult List LastViewed HereIsContent EmptyMessage ContentPeers ContentPeerSuggestions
+ SignedPub GetPub OnePlusOneMemberships TransferStatus TheseArePeers SearchResult Search PromotedContent ListResult List LastViewed HereIsContent EmptyMessage ContentPeers ContentPeerSuggestions YouSou
  
 ## implementations
 ### of the node
