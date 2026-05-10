@@ -30,12 +30,14 @@ UTF-8 encoded JSON array of externally tagged messages.   Post new message types
           "148.71.89.128:43344",
           "148.71.89.128:50352"] } }
 {"WhereAreThey":{"ed25519h": "hex of ed25519 sought, if found returns a MyPublicKey wrapped in a Forwarded, so you know where it came from"}}
+{"PleaseListSupportedMessages":{}}
 ```
 #### ping -- participants might use this to prioritize which peers to keep track of and which to keep in touch with more. Send it back and forget it, as it is probably a timestamp.
 ```
 {"PleaseReturnThisMessage":["cookie","String"]
 {"ReturnedMessage":        ["cookie","String"]
 ```
+
 
 ### MAY implement
 #### for larger than message sized data
@@ -64,12 +66,7 @@ UTF-8 encoded JSON array of externally tagged messages.   Post new message types
 {"AudioFrame":{ "sampleRate": 48000, "channels": 1, "format": "'f32' or 'opus' have been seen so far", "data": "some base64" }
 {"VideoFrame":{ "codec":"vp8", "keyframe": false, "seq": 123, "w": 640, "h": "480", "data": "base64.." }}
 ```
-#### Pong (real time game)
-```JSON
-{"PongMove":{"ball_x":400,"ball_y":250,"move_number":1,"vx":4.7022678911042926,"vy":-1.6996107437556365}}
-{"PongPaddle":{"paddle_y":320.6106870229008}}
-{"PongPing":{"seq":123,"t":2345678}}
-{"PongPingPong":{"seq":123,"t":2345678}}
+
 
 ```
 #### cryptography related
