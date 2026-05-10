@@ -22,6 +22,7 @@ UTF-8 encoded JSON array of externally tagged messages.   Post new message types
 {"PleaseAlwaysReturnThisMessage":["cookie","String"]
 {"AlwaysReturned":               ["cookie","String"]
 ```
+### MAY implement
 #### Peer discovery
 ```JSON
 {"PleaseSendPeers":{}}
@@ -39,7 +40,6 @@ UTF-8 encoded JSON array of externally tagged messages.   Post new message types
 {"ReturnedMessage":        ["cookie","String"]
 ```
 
-### MAY implement
 #### for larger than message sized data
 ```JSON
 {"PleaseSendContent":{
