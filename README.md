@@ -55,20 +55,7 @@ UTF-8 encoded JSON array of externally tagged messages.   Post new message types
        "id":"foo",
       "peers":[ "148.71.89.128:43344", "148.71.89.128:50352"] } }
 ```
-#### other
-```JSON
-{"ChatMessage":{ "message":"hi", "length":12345} }
-{"SawMessage":{ "hash": "sha256 hash of last received chat message that has been viewed (not just received, actual window focus)" 
-{"YouShouldSeeThis":{ "id":"sha256", "length":12345 } }
-{"IJustSawThis":{ "id":"sha256" } }
-{"PleaseListContent":{}}
-{"ContentList":{ "results": [ [ "hash", "size":123 ]  ] }
-{"AudioFrame":{ "sampleRate": 48000, "channels": 1, "format": "'f32' or 'opus' have been seen so far", "data": "some base64" }
-{"VideoFrame":{ "codec":"vp8", "keyframe": false, "seq": 123, "w": 640, "h": "480", "data": "base64.." }}
-```
 
-
-```
 #### cryptography related
 ```JSON
 { "EncryptedMessages": {
