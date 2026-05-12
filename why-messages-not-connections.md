@@ -34,7 +34,7 @@ If you do want a connection-like abstraction, build it as a message type. `{"Str
 
 ## Bottlenecks moved
 
-In 2005, base64 in JSON would have been insane. Bandwidth and CPU were the limits. In 2026, I can saturate a gigabit link parsing JSON on a $50 ARM board. The limit is how fast a human can understand the protocol and ship code.
+In 2005, base64 in JSON would have been insane. Bandwidth and CPU were the limits Operating system context switches were slow. In 2026, I can saturate a gigabit link parsing JSON on a $50 ARM board. The limit is how fast a human can understand the protocol and ship code.
 
 Readable messages mean you can debug with `tcpdump -A` and see `{"ChatMessage":{"message":"hi"}}`. You can implement a node in Bash. You can teach it to an LLM in one prompt. That is the optimization that matters now.
 
