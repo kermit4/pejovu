@@ -1,10 +1,28 @@
-# LCDP for libp2p Developers
 
-If you know libp2p, you already understand 90 percent of the problem LCDP is trying to solve. You have built transports, negotiated multistream-select, wired Noise or TLS, multiplexed yamux streams, and run Kademlia and gossipsub on top. You also know the cost: a spec stack that is powerful, correct, and takes weeks to learn.
 
-LCDP is not a better libp2p. It is a deliberate step down the stack to a place where a human can debug a network with `tcpdump -A`.
+# LCDP from the Perspective of a libp2p Dev
 
-## The whole difference in one paragraph
+This doc answers common questions from developers familiar with libp2p. LCDP is not a libp2p competitor 1:1. It's a different answer to "what should the base layer of p2p look like?"
+
+If you know libp2p, you can read LCDP in 10 minutes. The entire wire spec is: [{"MessageType":{...}}]. Everything else is optional messages.
+
+LCDP is not a better libp2p. It is a deliberate step down the stack to a place where the application developer retains control and visibility into the network layer, and does not depend on language support beyond a JSON library.
+
+## Core Philosophy Differences
+
+| | libp2p | LCDP |
+| --- | --- | --- |
+| Base abstraction | Connection -> Stream | Datagram -> Message |
+| Default state | Stateful, negotiated | 0-state, fire-and-forget |
+| Latency floor | 2-3 RTT: transport + security + mux | 0.5 RTT: one datagram |
+| Reliability | Built into streams via Yamux/mplex | Build it yourself with messages if you need it |
+| Versioning | /protocol/1.2.3, negotiate, break on mismatch | Add fields. Unknown keys ignored. No versions. |
+| Crypto | TLS/Noise mandatory per connection | optional per message |
+| Wire format | Negotiated: could be protobuf, noise packets | Always UTF-8 JSON arrays. tcpdump -A readable |
+| Identity | PeerID required, derived from pubkey | ed25519h optional. Use it if you need it |
+| Goal | "Be the TCP/IP of p2p" | "Be the IP of p2p" |
+
+Analogy: libp2p is POSIX. LCDP is sendto(). You can build POSIX on sendto(). You can't build sendto() on POSIX without ripping things out.
 
 libp2p gives you a composable toolkit for production p2p: peer IDs, secure channels, stream multiplexing, NAT hole punching with relays, DHT routing, pubsub. You choose pieces, you get guarantees.
 
@@ -14,42 +32,45 @@ LCDP gives you one wire format: UTF-8 JSON arrays of single-key objects sent ove
 
 No handshake, no version, no stream abstraction, no required encryption. Compatibility comes from "ignore what you do not understand" rather than negotiation.
 
-Think of libp2p as the Linux kernel networking stack. Think of LCDP as writing directly to a raw socket and deciding what reliability means for your app.
-
-## 1. Is this meant to be an alternative to libp2p?
+## 1. Is LCDP meant to be an alternative to libp2p?
 
 No, not directly. It is an alternative to the assumption that you always need a full stack.
 
-Use LCDP when you want more control, minimal latency, zero dependencies, works from bash with netcat, survives for decades without a version bump, lets you keep state for 10 peers or 10,000 peers without kernel socket exhaustion.
+libp2p: "P2P apps need connections, streams, mandatory crypto, protocol negotiation. Here's a framework."
+
+LCDP: "P2P apps need to send messages to peers. Here's the smallest wire format. Build connections if you want." Use LCDP when you want more control, minimal latency, zero dependencies, works from bash with netcat, survives for decades without a version bump, lets you keep state for 10 peers or 10,000 peers without kernel socket exhaustion.
+
+You could reimplement all of libp2p as LCDP message types. You can't reimplement LCDP inside libp2p without removing the Connection object, which breaks libp2p.
 
 They solve different scarcities. libp2p optimizes for machine efficiency and protocol correctness. LCDP optimizes for human understanding and implementation speed in 2026, where bandwidth is cheap and developer time is not.
 
-You can think of LCDP as the thing you would build *before* you need libp2p, or the fallback language two libp2p implementations could use when they have nothing else in common.
+### 2. Should someone switch from libp2p to LCDP?
 
-## 2. Could this be a libp2p transport?
-
-libp2p expects transports to have some amount of ordering and retransmission, so you'd have to abstract that in.
-
-## 3. Should someone switch from libp2p to this?
-
-Almost never as a wholesale switch. Switch if your pain points match what LCDP removes.
-
-Stay on libp2p if:
-- you need interop with IPFS, Filecoin, Polkadot, or any existing libp2p network
-- you rely on gossipsub for scalable pubsub
-- you need authenticated encryption by default, not as an optional wrapper
-- you have a team that can maintain upgrades across Noise, yamux, identify, etc.
 
 Consider LCDP if:
-- you are prototyping and want a working p2p demo in an afternoon, not a month
-- you need to talk to thousands of peers with almost no per-peer state
-- you want AI to generate clients reliably (JSON is far easier for LLMs than protobufs)
-- you want messages that survive tcpdump, grep, and ten years of bitrot
-- you are building something where partial understanding is fine, like gossiping sensor data or game state
+1. Profiling shows >30% CPU in Yamux/TLS handshakes
+2. Circuit Relay costs exceed $1k/mo due to symmetric NAT or don't want to depend on a third party for it.
+3. You want a accessable wire format -- tcpdump -A and see {"ChatMessage":{...}} not TLS blobs
+4. You have latency sensitive applications
+5. you are prototyping and want a working p2p demo in an afternoon, not a month
+6. you need to talk to thousands of peers with almost no per-peer state
+7. you want AI to generate clients reliably (JSON is far easier for LLMs than protobufs)
+8. you want messages that survive tcpdump, grep, and ten years of bitrot
+9. you are building something latency sensitive and loss tolerant, like gossiping sensor data or game state
 
-## 4. On a new project, how do I choose?
+Don't switch if:
+1. you need libp2p compatibility (IPFS, Filecoin, Polkadot, etc)
+2. proven at 500k nodes from day 1 (LCDP has some evolving to do for scale.)
+3. WebRTC in browsers
+4. Your team only knows libp2p.
+5. You're doing bulk file sync. libp2p solved that. 
+6. You need authenticated encryption by default, not as an optional wrapper
 
-Ask what you are optimizing for.
+It's a port, not a drop-in. State models are inverted.
+
+
+### 4. New project: when to pick LCDP vs libp2p?
+
 
 | Choose LCDP when | Choose libp2p when |
 | --- | --- |
@@ -59,8 +80,7 @@ Ask what you are optimizing for.
 | You want perpetual compatibility without versions | You are okay with protocol negotiation and upgrades |
 | You want any language, even bash, to join | You need a mature ecosystem in Go, Rust, JS, Nim |
 
-A practical heuristic: if your first milestone is "two laptops behind home routers exchange a JSON ping without a server," start with LCDP. If your first milestone is "secure, multiplexed streams with peer routing at internet scale," start with libp2p or further evolve LCDP.
-
+A practical heuristic: if your first milestone is "two laptops behind home routers exchange a JSON ping without a server," start with LCDP. If your first milestone is "secure, multiplexed streams with peer routing at internet scale," start with libp2p or expand upon LCDP.
 
 ## What libp2p developers usually miss at first
 
@@ -75,3 +95,91 @@ Do not think "LCDP versus libp2p." Think "messages versus connections."
 If you are comfortable with multistream-select, you will feel at home adding a new JSON key. If you are tired of upgrading six protocol versions to add one field, you will feel relief.
 
 Start by implementing two messages: `PleaseSendPeers` and `PleaseReturnThisMessage`. Talk to the bootstrap node at 148.71.89.128:24254 with netcat. You will have a better intuition in five minutes than any spec can give.
+
+
+REDO
+
+
+## Translation Table: libp2p -> LCDP
+
+| libp2p Concept | LCDP Equivalent | Notes |
+| --- | --- | --- |
+| PeerID | ed25519h in MyPublicKey | Both are pubkey hashes. LCDP uses hex, libp2p uses base58. |
+| PeerStore | Peers listed in Peers message | You store less metadata by default. |
+| Multiaddr | "1.2.3.4:24254" string | LCDP doesn't spec address format. Do what works. |
+| Stream | StreamOpen + StreamData messages | Build it yourself if needed. Not built-in. |
+| Protocol ID | Message type key: "ChatMessage" | No version string. No negotiation. |
+| Identify | MyPublicKey | Same idea. No handshake required. |
+| Ping | PleaseReturnThisMessage / ReturnedMessage | RTT measurement without connection. |
+| Kademlia DHT | WhereAreThey + Peers gossip | DHT is just message patterns. Build one if you want. |
+| Gossipsub | Subscribe + Publish messages | You invent the message types. Flood/forward as you like. |
+| Circuit Relay v2 | Forward message | Any node can relay. No special protocol. |
+| AutoNAT | Send UDP, see if reply arrives | If you get a reply, you're reachable. |
+| Secured Connection | EncryptedMessages + SignedMessage | Per-message, not per-connection. Optional. |
+
+You can implement all of libp2p as LCDP messages. The reverse isn't true without breaking libp2p's Connection invariant.
+
+
+## Anticipated Questions
+
+### "Why JSON? Isn't that wasteful?"
+
+In 2005, yes. In 2026, a $50 ARM SBC can base64 + parse 1 Gbps of JSON on one core. The bottleneck is developer time, not CPU. You can tcpdump -A and read the protocol. You can implement in Bash. That's the optimization that matters now.
+
+If you measure and find JSON is your bottleneck, define {"BinaryFrame":{"data":"..."}} or run a separate port. Don't pay the complexity tax until you must.
+
+### "No versions means no evolution?"
+
+Opposite. Versions freeze evolution. LCDP evolves by adding words.
+
+Old node sees {"ChatMessage":{"message":"hi","lang":"en"}}. It ignores lang, prints hi. New node uses lang. No negotiation, no breakage. This is how human language works. We didn't upgrade English to v2.
+
+If you need incompatible semantics, use a new message type: ChatMessageV2. Old nodes drop it. No explosion of version matrices.
+
+### "How do you do NAT traversal without STUN/TURN?"
+
+Same as STUN, but no spec: both sides send UDP. PleaseSendPeers gets you an address. PleaseAlwaysReturnThisMessage confirms the path is open. If it fails, user runs Forward through a friend. No dedicated infra required.
+
+libp2p's AutoNAT + Circuit Relay solves the same problem with more protocol. LCDP lets you solve it with any pattern you want, including AutoNAT if you reimplement it as messages.
+
+### "Isn't this insecure without mandatory encryption?"
+
+Peers and WhereAreThey are public anyway. Encrypting them is theatre. Use EncryptedMessages when the payload needs privacy. Use SignedMessage when you need authenticity. Don't pay crypto cost on discovery traffic.
+
+libp2p forces TLS on every connection because it assumes file transfer. LCDP assumes you know your threat model.
+
+### "How do I do reliable delivery?"
+
+Same way you would over UDP: ACKs, retries, FEC. But make it a message type:
+
+[{"ReliableSend":{"id":"uuid","seq":0,"data":"...","wants_ack":true}}]
+[{"Ack":{"id":"uuid","seq":0}}]
+
+Now you have reliability when you want it, and 0.5 RTT when you don't. libp2p bakes reliability into every stream, so you pay for it even on Pong moves.
+
+### "What about backpressure / congestion control?"
+
+Not in the base spec. If you're sending faster than the network, add your own {"RateLimit":{...}} messages. Or use QUIC as a transport under LCDP. Or accept packet loss like a game.
+
+TCP does congestion control for you, but gives you head-of-line blocking. LCDP gives you the choice.
+
+### "Can I use this in the browser?"
+
+Today: WebSocket or WebTransport to a gateway node. Browsers can't do raw UDP to arbitrary peers due to security model. That's a browser limit, not LCDP limit.
+
+Future: If browsers ever expose raw UDP via WebRTC DataChannel "raw" mode or similar, LCDP works directly. Until then, [{"Forwarded":{...}}] through a gateway is the path. Same problem libp2p has.
+
+## Summary
+
+| Use LCDP when | Use libp2p when |
+| --- | --- |
+| Latency < 50ms matters | Bulk transfer > latency |
+| Messages < 64KB | Files > 1MB |
+| You want 0-state scale | You want streams + backpressure |
+| You debug with tcpdump | You need IPFS interop today |
+| 500 LOC budget | 200k LOC budget is fine |
+| You hate frameworks | You want a framework |
+
+Core difference: libp2p optimizes for "don't reimplement TCP". LCDP optimizes for "don't use TCP".
+
+libp2p is a cathedral. LCDP is a bazaar with one rule: JSON arrays. Pick based on which problem you're solving.
