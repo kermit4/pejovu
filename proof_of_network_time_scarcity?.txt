@@ -1,7 +1,5 @@
 [5/12, 18:24] Chris: you know LCDP, is there any way it can do some kind of proof of time using network latency?  anything i think of can be faked by sybil but i feel like its in there somehow, some way, a series or a web or DAG of signatures and timestamps.  this has the advantage of being able to communicate with a large number of peers, and, by IP not just a pub key, so with some statistics maybe?
 
-[5/12, 18:24] Meta AI: Yeah, you're circling the real problem: PoW burns watts, PoS burns legitimacy, and both are trying to answer "who gets to write next?" without a central clock. 
-
 LCDP has two things most chains don't: 
 1. *Physical latency as a signal* - you have real IPs, real RTTs, and you can measure them without permission.
 2. *0-state gossip* - you can ping 10k peers in parallel because there's no connection setup.
