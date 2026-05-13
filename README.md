@@ -1,4 +1,8 @@
-Lowest Common Denominator Protocol tracking page
+# non-technical optional reading
+
+## summary
+
+Lowest Common Denominator Protocol (LCDP) tracking page
 
 LCDP is a simple, interoperable, expansible, message oriented peer to peer protocol, allowing participants to keep only as much state about peers as     they prefer, implementing only the message types of interest, with minimal latency, and perpetual compatibility by extension not versioning, 
 
@@ -6,17 +10,13 @@ You're still left with one of the two hard problems of computer science -- namin
 
 Telegram group: https://t.me/lowest_common_denominator
 
-# inspired by (not required reading)
+## inspired by 
 
 - https://farcaster.xyz/vitalik.eth/0xd6b8e141  
 - https://medium.com/@webseanhickey/the-evolution-of-a-software-engineer-db854689243
 - https://m.youtube.com/shorts/98dQH9tKPEA
 - https://knightcolumbia.org/content/protocols-not-platforms-a-technological-approach-to-free-speech
 - https://www.rfc-editor.org/rfc/rfc9518.html
-
-
-# protocol 
-UTF-8 encoded JSON array of externally tagged messages.   Post new message types or field on https://github.com/kermit4/LCDP/wiki   Do not change the meaning of already used messages except by adding fields.   Tolerate unrecognized messages and fields.
 
 ## elaborative essays (not required reading)
 
@@ -32,6 +32,10 @@ AI written, hypey but smoother to read than i'd have done it
 - Claude, look at pong.html and make a Atari 2600 Combat
 - Claude, look at dashboard.html and make IPv4 scarcity based voting system.
 - Claude, look at chat.html and make a proof-of-burn ed25519 key signer 
+
+# protocol 
+UTF-8 encoded JSON array of externally tagged messages.   Post new message types or field on https://github.com/kermit4/LCDP/wiki   Do not change the meaning of already used messages except by adding fields.   Tolerate unrecognized messages and fields.
+
 
 # as seen in the wild 
 ## message types 
@@ -162,7 +166,7 @@ Pay attention to unhandled messages and consider implementing them. Make your ow
 - 43a39a05ce426151da3c706ab570932b550065ab4f9e521bb87615f841517cf1 101M  sintel.mp4 -- modern Blender flic.  
 - 62c51ca281f7113e429625ac44c14f27c4d73c0fd03bfb47403f8cd85b3c858f 303M  house_on_haunted_hill.mp4
 
-# future possibilities
+# future ideas
 
 ## protocol ideas:
 - content.is_metadata, to include a list of hashes for huge files or streams that we want to verify as we go. (which could themselves do the same for really huge files)
