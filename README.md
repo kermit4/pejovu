@@ -129,9 +129,9 @@ Ask the node to forward messages to a peer identified by ed25519 public key, enc
 
 # 4. development hints
 
- echo -n '[{"PleaseSendPeers":{}}]' |nc -u localhost -p 12321 24254
+` echo -n '[{"PleaseSendPeers":{}}]' |nc -u localhost -p 12321 24254`
 
- tcpdump -As 9999 -i any port 24254
+ `tcpdump -As 9999 -i any port 24254`
 
 You could make something useful by implimenting no more than WhereAreThey and ChatMessage, or just as examples, or only PleaseSenContent, or just WhereAreThey and AudioFrame, or only PleaseReturnThisMessage, or some new type of your own. 
 
