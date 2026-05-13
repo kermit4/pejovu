@@ -34,7 +34,7 @@ AI written, hypey but smoother to read than i'd have done it
 - Claude, look at chat.html and make a proof-of-burn ed25519 key signer 
 
 # 2. protocol  (required reading)
-UTF-8 encoded JSON array of externally tagged messages.   Post new message types or field on https://github.com/kermit4/LCDP/wiki   Do not change the meaning of already used messages except by adding fields.   Tolerate unrecognized messages and fields.
+UTF-8 encoded JSON array of externally tagged messages.     Do not change the meaning of already used messages except by adding fields.   Tolerate unrecognized messages and fields.
 
 
 # 3. as seen in the wild  (suggested reading)
@@ -128,11 +128,14 @@ Ask the node to forward messages to a peer identified by ed25519 public key, enc
 - UDP 159.69.54.127:24254
 
 # 4. development hints
-  echo -n '[{"PleaseSendPeers":{}}]' |nc -u localhost -p 12321 24254
 
-  tcpdump -As 9999 -i any port 24254
+ echo -n '[{"PleaseSendPeers":{}}]' |nc -u localhost -p 12321 24254
 
-  You could make something useful by implimenting no more than WhereAreThey and ChatMessage, or just as examples, or only PleaseSenContent, or just WhereAreThey and AudioFrame, or only PleaseReturnThisMessage, or some new type of your own. 
+ tcpdump -As 9999 -i any port 24254
+
+You could make something useful by implimenting no more than WhereAreThey and ChatMessage, or just as examples, or only PleaseSenContent, or just WhereAreThey and AudioFrame, or only PleaseReturnThisMessage, or some new type of your own. 
+
+Post new message types or field on https://github.com/kermit4/LCDP/wiki
 
 The protocol should sound more like people than computers.   Simple requests, share a lot, expect little, be tolerant -- you're talking to strangers using automation, not computers.  Prefer to leave decisions up to implementations.  It's a language for ordinary people using automation.  Everyone starts somewhere, keep it accessible to any programming skill level, with more advanced features optional (or not, it's up to you on your node and implementation).  Use long names for things, bandwidth is cheaper than explanations.
 
