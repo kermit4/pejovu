@@ -1,4 +1,4 @@
-# non-technical optional reading
+# 1. non-technical optional reading
 
 ## summary
 
@@ -33,11 +33,11 @@ AI written, hypey but smoother to read than i'd have done it
 - Claude, look at dashboard.html and make IPv4 scarcity based voting system.
 - Claude, look at chat.html and make a proof-of-burn ed25519 key signer 
 
-# protocol 
+# 2. protocol 
 UTF-8 encoded JSON array of externally tagged messages.   Post new message types or field on https://github.com/kermit4/LCDP/wiki   Do not change the meaning of already used messages except by adding fields.   Tolerate unrecognized messages and fields.
 
 
-# as seen in the wild 
+# 3. as seen in the wild 
 ## message types 
 ### SHOULD implement
 #### Send it back with any message to the node that provided it (but not just by itself, that's not the purpose).   Currently, this is only used so no one can fake ("spoof") their source IP to use a node to spam ("flood") someone else.   Messages recieved without the correct AlwaysReturned should only be sent responses that, on average, are no more than twice the size of such messages received.  ( https://en.wikipedia.org/wiki/IP_address_spoofing )        .  Or any other means you can know your response isn't multiplying traffic more than 2.5x to an unwilling recipient.
@@ -127,7 +127,7 @@ Ask the node to forward messages to a peer identified by ed25519 public key, enc
 - UDP 148.71.89.128:24254
 - UDP 159.69.54.127:24254
 
-# development hints:
+# 4. development hints:
   echo -n '[{"PleaseSendPeers":{}}]' |nc -u localhost -p 12321 24254
 
   tcpdump -As 9999 -i any port 24254
@@ -166,7 +166,7 @@ Pay attention to unhandled messages and consider implementing them. Make your ow
 - 43a39a05ce426151da3c706ab570932b550065ab4f9e521bb87615f841517cf1 101M  sintel.mp4 -- modern Blender flic.  
 - 62c51ca281f7113e429625ac44c14f27c4d73c0fd03bfb47403f8cd85b3c858f 303M  house_on_haunted_hill.mp4
 
-# future ideas
+# 5. future ideas
 
 ## protocol ideas:
 - content.is_metadata, to include a list of hashes for huge files or streams that we want to verify as we go. (which could themselves do the same for really huge files)
